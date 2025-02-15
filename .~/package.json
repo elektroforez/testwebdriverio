@@ -1,0 +1,11 @@
+{
+  "name": ".~",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/browser-runner": "^9.7.2",
+    "@wdio/cli": "^9.7.2",
+    "@wdio/mocha-framework": "^9.7.2",
+    "@wdio/spec-reporter": "^9.6.3",
+    "wdio-vscode-service": "^6.1.2"
+  }
+}
