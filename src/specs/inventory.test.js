@@ -1,30 +1,29 @@
-import { $, browser, expect } from '@wdio/globals';
-import LoginPage from '../pageobjects/login.page.js';
-import InventoryPage from '../pageobjects/inventory.page.js';
+import loginPage from '../pageobjects/login.page.js';
+import inventoryPage from '../pageobjects/inventory.page.js';
 
 describe ('Sorting', async () => {
     before(async () => {
-        await LoginPage.open();
-        await LoginPage.login("standard_user", "secret_sauce");
+        await loginPage.open();
+        await loginPage.login("standard_user", "secret_sauce");
     });
     it('Price (high to low)', async () => {
-        await InventoryPage.selectFilter('hilo');
+        await inventoryPage.pageHeader.selectFilter('hilo');
         
-        expect(await InventoryPage.isSorted((a, b) => b - a)).toBe(true);
+        expect(await inventoryPage.isSorted((a, b) => b - a)).toBe(true);
     });
     it('Price (low to high)', async () => {
-        await InventoryPage.selectFilter('lohi');
+        await inventoryPage.pageHeader.selectFilter('lohi');
 
-        expect(await InventoryPage.isSorted((a, b) => a - b)).toBe(true);
+        expect(await inventoryPage.isSorted((a, b) => a - b)).toBe(true);
     });
     it('Name A-Z', async () => {
-        await InventoryPage.selectFilter('az');
+        await inventoryPage.pageHeader.selectFilter('az');
 
-        expect(await InventoryPage.isSorted((a, b) => a.localeCompare(b))).toBe(true);
+        expect(await inventoryPage.isSorted((a, b) => a.localeCompare(b))).toBe(true);
     });
     it('Name A-Z', async () => {
-        await InventoryPage.selectFilter('za');
+        await inventoryPage.pageHeader.selectFilter('za');
 
-        expect(await InventoryPage.isSorted((a, b) => b.localeCompare(a))).toBe(true);
+        expect(await inventoryPage.isSorted((a, b) => b.localeCompare(a))).toBe(true);
     });
 })

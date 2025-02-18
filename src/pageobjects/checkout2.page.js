@@ -4,6 +4,7 @@ class CheckoutStepTwo extends BasePage{
     get checkoutItems() {return $$('[data-test="inventory-item"]')}
     get totalLabel() {return $('[data-test="total-label"]')}
     get finishButton() {return $('[data-test="finish"]')}
+    get firstCheckoutItemName() { return this.checkoutItems[0].$('[data-test="inventory-item-name"]').getText();}
 
     constructor() {
         super('Checkout Page Two', '/checkout-step-two'); 

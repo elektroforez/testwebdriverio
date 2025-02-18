@@ -16,10 +16,6 @@ class LoginPage extends BasePage{
         await this.submitButton.click();
     }
 
-    async isErrorMessageDisplayed(){
-        return await (await this.errorMessage).isDisplayed();
-    }
-
     async open(){
         await super.open(this.pageUrl);
     }
